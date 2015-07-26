@@ -1,0 +1,63 @@
+<ion-view view-title="Documentos">
+  <ion-content>
+      
+    <form>
+    <div class="list">
+        <label class="item item-input">
+            <input type="text" name="documento.razao_social" ng-model="documento.razao_social" placeholder="Razão Social" value="">
+        </label>
+        
+        <label class="item item-input item-select">
+            <div class="input-label">
+              Responsável
+            </div>
+            <select ng-model="documento.responsavel">
+                <option ng-repeat="responsavel in responsaveis" value="{{responsavel.id}}">
+                  {{responsavel.name}}
+                </option>
+            </select>
+        </label>
+        
+        <label class="item item-input item-select">
+            <div class="input-label">
+              Tipo
+            </div>
+            <select ng-model="documento.tipo">
+                <option ng-repeat="type in document_type" value="{{type.id}}">
+                  {{type.name}}
+                </option>
+            </select>
+        </label>
+        
+        
+        <label class="item item-input item-select">
+            <div class="input-label">
+              Status
+            </div>
+            <select ng-model="documento.status">
+                <option ng-repeat="status in document_status" value="{{status.nome}}">
+                  {{status.nome}}
+                </option>
+            </select>
+        </label>
+
+        
+        
+        <label class="item item-input">
+            <input type="text" ng-model="documento.valor" placeholder="Valor R$" value="">
+        </label>
+    </div>
+      
+      <button class="button button-balanced" ng-click="pesquisar(documento)">
+          Pesquisar
+      </button>
+      </form>
+      
+      <div class="list list-inset">
+        <div ng-repeat="document in dataDocuments" class="item">
+          <p>{{document.name}} - {{document.company_name}}</p>
+        </div>
+      </div>
+      
+  </ion-content>
+</ion-view>
